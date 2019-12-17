@@ -1,0 +1,6 @@
+\chapter{Functors}\label{chap:Functors}
+\begin{Example}\label{ex:MatFuncs}
+Let $r \in \mathbb N$. In the category $\cat{Mat}_R$ given in Example~\ref{ex:Mat}, we can define functors $r \otimes - \colon \cat{Mat}_R \to \cat{Mat}_R$ and $- \otimes r \colon \cat{Mat}_R \to \cat{Mat}_R$ as follows. For any object $n$ of $\cat{Mat}$, $(r \otimes -) n = rn$. For any arrow $A \colon n \to m$, $(r \otimes -) A = I_r \otimes A$, the Kronecker product of the identity matrix $I_r$ and $A$. The other functor $- \otimes r$ is defined similarly.
+
+The Kronecker product of matrices satisfies the property $(A \otimes B)(C \otimes D) = AC \otimes BD$ (provided $A$ and $C$, and similarly $B$ and $D$ are compatible for multiplication). This implies that the functors preserve composition of morphisms. And since $I_r \otimes I_n = I_n \otimes I_r = I_{rn}$, they preserve identity arrows as well.
+\end{Example}

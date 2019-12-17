@@ -1,0 +1,32 @@
+\chapter{Adjunctions}\label{chap:Adjunctions}
+\begin{Example}\label{ex:MatAdj}
+Consider the functor $r \otimes - \colon \cat{Mat}_R \to \cat{Mat}_R$ defined in Example~\ref{ex:MatFuncs}. Let $\fun L = r \otimes -$ and let $\fun R$ be a right adjoint of $\fun L$ (if one exists). Then $\Hom(\fun L(m), n) \cong \Hom(m, \fun R(n))$ for all $m, n \in \mathbb N$. But $L(m) = rm$, so $\Hom(\fun L(m), n)$ is the set of all $n \times rm$ matrices with entries from $R$. If $R$ is finite (e.g., $R = \mathbb Z_2$), then $|\Hom(rm, n)| = |R|^{rmn}$. This suggests that $\Hom(m, \fun R (n)) = \Hom(m, rn)$, so that $\fun R(n) = rn$. This further suggests that $R = r \otimes -$ or $R = - \otimes r$.
+
+Let $R = r \otimes -$. Given an arrow $A \colon \fun L(m) \to n$, that is, given an $n \times rm$ matrix $A$, we must define an arrow $A^* \colon m \to \fun R(n)$, that is, an $rn \times m$ matrix $A^*$, so that $(\cdot)^*$ is a bijection from $\Hom(\fun L(m), n)$ to $\Hom(m, \fun R(n))$. Thus, given an $rn \times m$ matrix $B$, there must be an $n \times rm$ matrix $B^*$, such that $(A^*)^* = A$ and $(B^*)^* = B$ for all $A \in \Hom(\fun L(m), n)$ and $B \in \Hom(m, \fun R(n))$.
+
+Comparing the orders of $A$ and $A^*$ indicates that the operation we need is some sort of matrix transposition --- a ``partial'' one. Consider a partition of the $n \times rm$ matrix $A$.
+\begin{equation*}
+A = \begin{bmatrix}
+A_{11}	&	A_{12}	&	\cdots	&	A_{1m}	\\
+A_{21}	&	A_{22}	&	\cdots	&	A_{2m}	\\
+\vdots	&	\vdots	&	\ddots	&	\vdots	\\
+A_{n1}	&	A_{32}	&	\cdots	&	A_{nm}
+\end{bmatrix}_{n \times rm}
+\end{equation*}
+where each $A_{ij}$ is a $1 \times r$ (row) vector. Then we can obtain a matrix $A^*$ of the required order $rn \times m$ by transposing each such block $A_{ij}$ of $A$.
+\begin{equation*}
+A^* = \begin{bmatrix}
+A^T_{11}	&	A^T_{12}	&	\cdots	&	A^T_{1m}	\\
+A^T_{21}	&	A^T_{22}	&	\cdots	&	A^T_{2m}	\\
+\vdots	&	\vdots	&	\ddots	&	\vdots	\\
+A^T_{n1}	&	A^T_{32}	&	\cdots	&	A^T_{nm}
+\end{bmatrix}_{rn \times m}
+\end{equation*}
+Obviously then, given a matrix $B$ of order $rn \times m$, we can partition it similarly into $n$ rows and $m$ columns of $r \times 1$ column vectors, and then transpose each of these vectors to obtain an $n \times rm$ matrix $B^*$. Both of these operations are well defined, and clearly, $A^{**} = A$ and $B^{**} = B$.
+
+But in order for this bijection to be the natural one between the hom-sets, we must also verify that the following two equations hold for all $\xymatrix{\fun L(m) \ar[r]^{A} & n \ar[r]^C & p}$ and $\xymatrix{q \ar[r]^D & m \ar[r]^B & \fun R(n)}$.
+\begin{align*}
+\pqty{ \xymatrix{\fun L(m) \ar[r]^{A} & n \ar[r]^C & p} }^* & = \xymatrix{m \ar[r]^{A^*} & \fun R(n) \ar[r]^{\fun R(C)} & \fun R(p)}\\
+\pqty{ \xymatrix{q \ar[r]^D & m \ar[r]^B & \fun R(n)} }^* & = \xymatrix{\fun L(q) \ar[r]^{\fun L(D)} & \fun L(m) \ar[r]^{B^*} & n}
+\end{align*}
+\end{Example}

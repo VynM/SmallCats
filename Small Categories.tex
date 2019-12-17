@@ -1,0 +1,103 @@
+% !TEX program = xelatex
+
+\documentclass[12pt, a4paper]{report}
+\usepackage[top = 20mm, bottom = 18mm, left=15mm, right = 15mm]{geometry}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\renewcommand{\chaptermark}[1]{%
+	\markboth{\chaptername
+		\ \thechapter.\ #1}{}}
+
+\usepackage{titlesec, blindtext, color}
+\definecolor{gray75}{gray}{0.75}
+\newcommand{\hsp}{\hspace{10pt}}
+\titleformat{\chapter}[hang]{\LARGE\bfseries}{\thechapter\hsp\textcolor{gray}{|}\hsp}{0pt}{\LARGE\bfseries}
+\titlespacing*{\chapter}{0pt}{-30pt}{20pt}
+
+\usepackage{natbib}
+
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+\usepackage[all, cmtip, 2cell]{xy}
+\setcounter{tocdepth}{3}
+\usepackage{graphicx}
+\usepackage{physics}
+
+\usepackage{tikz}
+
+\usepackage{mathtools}
+\usepackage{xspace}
+\usepackage{enumitem}
+
+\usepackage{tocloft}
+\renewcommand{\cftdot}{}
+
+\usepackage{hyperref}
+\hypersetup{colorlinks, linkcolor = [RGB]{66, 128, 128}, urlcolor = red, linktocpage = true}
+\usepackage{bookmark}
+\bookmarksetup{color = [RGB]{66, 128, 128}}
+
+\usepackage[intoc]{nomencl}
+\makenomenclature
+
+\usepackage[toc, page]{appendix}
+
+\usepackage[T1]{fontenc}
+\usepackage[sfdefault, lining]{FiraSans}
+\usepackage{kmath}
+
+\newtheorem{Theorem}{Theorem}[chapter]
+\newtheorem{Lemma}[Theorem]{Lemma}
+\newtheorem{Corollary}[Theorem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{Definition}[Theorem]{Definition}
+\newtheorem*{Definition*}{Definition}
+\newtheorem{Example}[Theorem]{Example}
+\newtheorem*{Example*}{Example}
+\newtheorem{Exercise}{Exercise}[section]
+
+\theoremstyle{remark}
+\newtheorem*{Remark*}{Remark}
+\newtheorem*{Solution*}{Solution}
+\newtheorem*{Note*}{Note}
+
+\newcommand{\cat}[1]{\mathsf{#1}}
+\newcommand{\opp}{^\mathsf{op}}
+\DeclareMathOperator{\Ob}{Ob}
+\DeclareMathOperator{\Ar}{Ar}
+\DeclareMathOperator{\Hom}{Hom}
+\newcommand{\fun}[1]{\mathcal{#1}}
+
+\let\Im\relax
+\DeclareMathOperator{\Im}{Im}
+\newcommand{\id}{\mathrm{id}}
+\renewcommand{\th}{\textsuperscript{th}\xspace}
+
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+\DeclareMathOperator{\lcm}{lcm}
+
+%\setlength{\parindent}{0pt}
+
+\begin{document}
+
+\title{\scshape \bfseries Small Categories}
+\author{VM}
+\date{}
+\maketitle
+
+\begingroup
+\let\clearpage\relax
+\tableofcontents
+\endgroup
+
+%\include{Nomenclature}
+
+\clearpage
+
+%\include{Introduction}
+\include{DefiningSmallCategories}
+\include{Functors}
+\include{Adjunctions}
+
+\end{document}
